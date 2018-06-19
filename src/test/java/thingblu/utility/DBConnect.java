@@ -22,7 +22,7 @@ public class DBConnect {
 		// Load Microsoft SQL Server JDBC driver.
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 		// Prepare connection url.
-		String url = "jdbc:sqlserver://192.168.5.148//sqlexpress:1024;DatabaseName=ThingBluGrowDB";
+		String url = "jdbc:sqlserver://WIN-R13PJAU5UFN//SQLEXPRESS;DatabaseName=ThingBluGrowDB";
 		// Get connection to DB.
 		con = DriverManager.getConnection(url, "M3ch50ft", "sa");
 		// Create statement object which would be used in writing DDL and DML
