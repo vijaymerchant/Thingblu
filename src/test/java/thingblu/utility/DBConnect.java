@@ -10,32 +10,32 @@ import org.testng.annotations.Test;
 
 public class DBConnect {
 
-	private Connection con = null;
-	private Statement stmt = null;
-	String baseUrl;
-	ResultSet resultSet = null;
-	String resultValue = "";
+	 private Connection con = null;
+	 private Statement stm = null;
+	 ResultSet resultSet;
+	 private String username = "sa";
+	 private String password = "M3ch50ft";
 
 
 	@Test
 	public void test() throws SQLException, ClassNotFoundException {
-		// Load Microsoft SQL Server JDBC driver.
 		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		// Prepare connection url.
-		String url = "jdbc:sqlserver://WIN-R13PJAU5UFN//SQLEXPRESS;DatabaseName=ThingBluGrowDB";
-		// Get connection to DB.
-		con = DriverManager.getConnection(url, "M3ch50ft", "sa");
-		// Create statement object which would be used in writing DDL and DML
-		// SQL statement.
-		stmt = con.createStatement();
+		  String url = "jdbc:sqlserver://192.168.5.148;DatabaseName=ThingBluGrowDB";
+		  
+		 
+		  con = DriverManager.getConnection(url,username,password);
+		  stm = con.createStatement();
+		 
+		  resultSet = stm.executeQuery("select * from TBG_StrainMaster");
+		 
 
-		resultSet = stmt.executeQuery("select * from TBG_StrainMaster");
 		
 		
 		try {
 			while (resultSet.next()) {
-				resultValue = resultSet.getString(1).toString();
-				System.out.println(resultValue);
+				//resultValue = resultSet.getString(1).toString();
+				System.out.println(resultSet.getString(1).toString());
+				System.out.println(resultSet.getString(2).toString());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

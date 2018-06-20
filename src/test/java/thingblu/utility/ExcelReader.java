@@ -1,8 +1,14 @@
 package thingblu.utility;
 
+import java.io.File;
+import java.io.FileInputStream;
+
+import jxl.Sheet;
+import jxl.Workbook;
+
 public class ExcelReader {
 
-	/*public static String[][] getExcelData(String filePath, String sheetName) {
+	public static String[][] getExcelData(String filePath, String sheetName) {
 		String[][] excelArrayData = null;
 		try {
 			File file = new File(filePath);
@@ -22,6 +28,6 @@ public class ExcelReader {
 			System.out.println(e.getMessage());
 		}
 		return excelArrayData;
-	}*/
+	}
 
 }

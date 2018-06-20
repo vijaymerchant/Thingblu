@@ -51,6 +51,16 @@ public class BasePage {
 		}
 	}
 	
+	public void selectItemFromDrpDwnOrder(WebElement eleToClick,List<WebElement> drpDwnList, String itemName){
+		click(eleToClick);
+		for (int i = 1; i < drpDwnList.size(); i++) {
+			if (drpDwnList.get(i).getText().equalsIgnoreCase(itemName)) {
+				drpDwnList.get(i).click();
+				break;
+			}
+		}
+	}
+	
 	public void waitTime() {
 		try {
 			driver.wait(400);

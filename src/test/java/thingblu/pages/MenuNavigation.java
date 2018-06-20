@@ -40,14 +40,14 @@ public class MenuNavigation extends BasePage {
 		}
 	}
 	
-	public void clickOnOrderMenuItem(String MenuName){
-		if (order.getText().equalsIgnoreCase(MenuName)) {
+	public void clickOnOrderMenuItem(){
+		if (order.getText().equalsIgnoreCase("order")) {
 			order.click();
 		}
 	}
 
-	public void clickOnOrderFormMenuItem(String MenuName){
-		if (OrderRequestForm.getText().equalsIgnoreCase(MenuName)) {
+	public void clickOnOrderFormMenuItem(){
+		if (OrderRequestForm.getText().equalsIgnoreCase("Order Request Form")) {
 			OrderRequestForm.click();
 		}
 	}

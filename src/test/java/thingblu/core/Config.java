@@ -24,7 +24,7 @@ public class Config {
 	
 	
 	@BeforeClass
-	public void initBrowser() {
+	public void initBrowser() throws Exception {
 		driver = WebDriverManager.getInstance("chrome");
 		
 		signIn= PageFactory.initElements(driver,SignInPage.class );
@@ -33,6 +33,15 @@ public class Config {
 		lotEntryPage=PageFactory.initElements(driver,LotEntry.class );
 		
 		driver.get(Constants.testLink);
+		signIn.setUsername("th!ngblu");
+		signIn.setPassword("123456");
+		signIn.ClickSignInBtn();
+		Thread.sleep(2000);
+		navigation.clickOnOrderMenuItem();
+		Thread.sleep(2000);
+		navigation.clickOnOrderFormMenuItem();
+		Thread.sleep(4000);
+		
 	}
 	
 	/*@AfterClass

@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="16738" started-at="2018-06-15T15:34:10Z" finished-at="2018-06-15T15:34:26Z">
+  <suite name="Default suite" duration-ms="18964" started-at="2018-06-20T12:28:57Z" finished-at="2018-06-20T12:29:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="16738" started-at="2018-06-15T15:34:10Z" finished-at="2018-06-15T15:34:26Z">
+    <test name="Default test" duration-ms="18964" started-at="2018-06-20T12:28:57Z" finished-at="2018-06-20T12:29:15Z">
       <class name="thingblu.TestsCasesManager.ValidSignIn">
-        <test-method status="PASS" signature="initBrowser()[pri:0, instance:thingblu.TestsCasesManager.ValidSignIn@2b98378d]" name="initBrowser" is-config="true" duration-ms="5116" started-at="2018-06-15T21:04:10Z" finished-at="2018-06-15T21:04:15Z">
+        <test-method status="PASS" signature="initBrowser()[pri:0, instance:thingblu.TestsCasesManager.ValidSignIn@5b275dab]" name="initBrowser" is-config="true" duration-ms="17429" started-at="2018-06-20T17:58:57Z" finished-at="2018-06-20T17:59:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initBrowser -->
-        <test-method status="PASS" signature="signInWithValidCredentials()[pri:0, instance:thingblu.TestsCasesManager.ValidSignIn@2b98378d]" name="signInWithValidCredentials" duration-ms="11578" started-at="2018-06-15T21:04:15Z" finished-at="2018-06-15T21:04:26Z">
+        <test-method status="PASS" signature="signInWithValidCredentials()[pri:0, instance:thingblu.TestsCasesManager.ValidSignIn@5b275dab]" name="signInWithValidCredentials" duration-ms="1503" started-at="2018-06-20T17:59:14Z" finished-at="2018-06-20T17:59:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signInWithValidCredentials -->
