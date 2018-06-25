@@ -24,6 +24,12 @@ public class MenuNavigation extends BasePage {
 	@FindBy(css="a[ng-reflect-router-link='orderrequestform']>span")
 	WebElement OrderRequestForm;
 	
+	@FindBy(css = ".menu>ul>li:nth-child(5)>div>a>span")
+	WebElement task;
+	
+	@FindBy(css="a[ng-reflect-router-link='assigntask']>span")
+	WebElement assigntask;
+	
 	public void getMenuText(){
 		System.out.println("menu utem name is :" +OrderRequestForm.getText());
 	}
@@ -49,6 +55,18 @@ public class MenuNavigation extends BasePage {
 	public void clickOnOrderFormMenuItem(){
 		if (OrderRequestForm.getText().equalsIgnoreCase("Order Request Form")) {
 			OrderRequestForm.click();
+		}
+	}
+	
+	public void clickOnTaskMenuItem(){
+		if (task.getText().equalsIgnoreCase("Task")) {
+			task.click();
+		}
+	}
+
+	public void clickOnAssignTaskMenuItem(){
+		if (assigntask.getText().equalsIgnoreCase("Assign Task")) {
+			assigntask.click();
 		}
 	}
 }

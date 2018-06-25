@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="thingblu.TestsCasesManager.ValidSignIn">
+      <class name="thingblu.TestsCasesManager.GrindingTask">
         <methods>
-          <include name="signInWithValidCredentials"/>
+          <include name="verifyAssignTrimmingTask" invocation-numbers="0"/>
           <include name="initBrowser"/>
         </methods>
-      </class> <!-- thingblu.TestsCasesManager.ValidSignIn -->
+      </class> <!-- thingblu.TestsCasesManager.GrindingTask -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -4,10 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import thingblu.core.Constants;
+
 public class ReadPropertiesFile {
 
 	public static String getDataFromProperties(String key) {
-		File file = new File("");
+		File file = new File(Constants.propertiesFilePath);
 		FileInputStream fileInput = null;
 		try {
 			fileInput = new FileInputStream(file);

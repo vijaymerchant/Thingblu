@@ -61,6 +61,23 @@ public class BasePage {
 		}
 	}
 	
+	public void checkCheckboxStatusAndSelect(String desiredStatus, List<WebElement> listEle, String checkboxName) {
+		if (desiredStatus.equalsIgnoreCase("check")) {
+			for (int i = 0; i < listEle.size(); i++) {
+				if (listEle.get(i).getText().equalsIgnoreCase(checkboxName)) {
+					listEle.get(i).click();
+					break;
+				} else {
+					System.out.println(checkboxName + " checkbox not found");
+				}
+			}
+		}
+
+		else {
+			System.out.println("checkbox is default unchecked.");
+		}
+	}
+	
 	public void waitTime() {
 		try {
 			driver.wait(400);
