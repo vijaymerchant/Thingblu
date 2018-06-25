@@ -2,6 +2,7 @@ package thingblu.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -60,6 +61,18 @@ public class AssignTask extends BasePage {
 	
 	@FindBy(id="assignwt")
 	WebElement assignWt;
+	
+	// for orders
+	@FindBy(id="orderno")
+	WebElement clickOnOrderDrpDwn;
+	@FindAll({ @FindBy(css = "#orderno>div>div:nth-child(5)>div:nth-child(2)>ul>li>span") })
+	List<WebElement> selectS2OrderNoFromDrpDwn;
+	
+	@FindAll({ @FindBy(css = "div[formarrayname='budOrderPackets']>p-table>div>div>table>tbody>tr>td") })
+	List<WebElement> checkOrderItemsData;
+	
+	
+	
 	
 	/**
 	 * select trimming task from task list drop down.
@@ -123,5 +136,29 @@ public class AssignTask extends BasePage {
 	
 	public String getAlertMessagePopUpText(){
 		return alertMessagePopUp.getText();
+	}
+	
+	public void selectS2OrderID(String s2OrderID) {
+		selectItemFromDrpDwn(clickOnOrderDrpDwn, selectS2OrderNoFromDrpDwn, s2OrderID);
+	}
+	
+	public void getOrderData(){
+		for (int i = 1; i < checkOrderItemsData.size()-1; i++) {
+			System.out.println(checkOrderItemsData.get(i).getText());
+		}
+	}
+	
+	@FindAll({ @FindBy(css = "input[formcontrolname='assignPackageWt']") })
+	List<WebElement> assignOrderItemQuantity;
+	
+	public void enterOrderItemQuantity(String orderQuantity){
+		for (int i = 1; i < assignOrderItemQuantity.size(); i++) {
+			
+			for (int j = 1; j >0 ; j++) {
+				String orderPackInputBox= "div[formarrayname='budOrderPackets']>p-table>div>div>table>tbody>tr:nth-child("+j+")>td>input";
+				WebElement orderQtyIputBox= driver.findElement(By.cssSelector(orderPackInputBox));
+				enterData(orderQtyIputBox, orderQuantity);
+			}
+		}
 	}
 }
