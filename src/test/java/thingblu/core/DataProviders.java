@@ -9,7 +9,7 @@ public class DataProviders {
 
 	@DataProvider(name = "Apackdata")
 	public Object[][] orderEntryData() throws BiffException, Exception {
-		Object[][] arrayObject = ExcelReader.getExcelData("Constants.orderDataFile", "Sheet1");
+		Object[][] arrayObject = ExcelReader.getExcelData(Constants.orderDataFile, "Sheet1");
 		return arrayObject;
 	}
 

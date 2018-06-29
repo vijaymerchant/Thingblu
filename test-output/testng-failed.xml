@@ -3,12 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="thingblu.TestsCasesManager.GrindingTask">
+      <class name="thingblu.utility.DBConnect">
         <methods>
-          <include name="verifyAssignTrimmingTask" invocation-numbers="0"/>
-          <include name="initBrowser"/>
+          <include name="test"/>
         </methods>
-      </class> <!-- thingblu.TestsCasesManager.GrindingTask -->
+      </class> <!-- thingblu.utility.DBConnect -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

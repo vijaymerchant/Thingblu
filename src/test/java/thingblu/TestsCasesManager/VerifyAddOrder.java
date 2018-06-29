@@ -21,7 +21,7 @@ public class VerifyAddOrder extends Config {
 		Thread.sleep(4000);
 		orderEntryPage.selectRetailerName("Cokin");
 		orderEntryPage.clickOnCalander("18");
-		orderEntryPage.enterS2OrderID("989899");
+		orderEntryPage.enterS2OrderID("98989954");
 		if (checkType == "") {
 			checkType = typeName;
 			Rowcount++;
@@ -61,7 +61,7 @@ public class VerifyAddOrder extends Config {
 		orderEntryPage.enterOrderQty(orderItemQty, Rowcount, panelNo);
 
 		totalrowcount++;
-		if (ExcelReader.getTotalRowCount("D:\\somanath\\AutomationData\\Thingblu-Testdata\\classSequenceData.xls",
+		if (ExcelReader.getTotalRowCount("D:\\somanath\\AutomationData\\Thingblu-Testdata\\orderEntryData.xls",
 				"Sheet1") == totalrowcount) {
 			orderEntryPage.clickOnSaveButton();
 		}

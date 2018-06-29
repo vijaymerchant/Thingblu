@@ -21,7 +21,7 @@ public class Constants {
 	
 	//Excel file locations
 	public static final String lotEntryFile ="D:\\somanath\\AutomationData\\Thingblu-Testdata\\Lot-Entry-Data.xls";
-	//public static final String orderDataFile="D:\\somanath\\AutomationData\\Thingblu-Testdata\\orderEntryData.xls";
+	public static final String orderDataFile="D:\\somanath\\AutomationData\\Thingblu-Testdata\\orderEntryData.xls";
 	public static final String taskAssignFile ="D:\\somanath\\AutomationData\\Thingblu-Testdata\\TaskAssignData.xls";
 	
 			
