@@ -19,9 +19,14 @@ public class AssignTask extends BasePage {
 	WebElement clickOnTaskDrpDwn;
 	@FindAll({ @FindBy(css = "#taskname>div>div:nth-child(5)>div:nth-child(2)>ul>li>span") })
 	List<WebElement> selectTaskFromDrpDwn;
+	
+	@FindBy(id = "strain")
+	WebElement clickOnStrainDrpDwn;
+	@FindAll({ @FindBy(css = "#strain>div>div:nth-child(5)>div:nth-child(2)>ul>li>span") })
+	List<WebElement> selectStarinFromDrpDwn;
+	
 	@FindBy(id = "lotno")
 	WebElement clicLotDrpDwn;
-	
 	@FindAll({ @FindBy(css = "#lotno>div>div:nth-child(5)>div:nth-child(2)>ul>li>span") })
 	List<WebElement> selectLotFromDrpDwn;
 	
@@ -71,21 +76,31 @@ public class AssignTask extends BasePage {
 	@FindAll({ @FindBy(css = "div[formarrayname='budOrderPackets']>p-table>div>div>table>tbody>tr>td") })
 	List<WebElement> checkOrderItemsData;
 	
+	@FindBy(id="btnLotSelectionConfirm")
+	WebElement lotSelectionConfBtn;
+	
 	
 	
 	
 	/**
 	 * select trimming task from task list drop down.
-	 * 
 	 * @param taskName
 	 */
 	public void selectTask(String taskName) {
 		selectItemFromDrpDwn(clickOnTaskDrpDwn, selectTaskFromDrpDwn, taskName);
 	}
+	
+	/**
+	 * select strain from strain list drop down to get lots.
+	 * @param strainName pass valid strain name.
+	 */
+	public void selectStarin(String strainName) {
+		selectItemFromDrpDwn(clickOnStrainDrpDwn, selectStarinFromDrpDwn, strainName);
+	}
+	
 
 	/**
 	 * Select lot number from lot drop down for trimming task.
-	 * 
 	 * @param lotNumber
 	 */
 	public void selectLotNumber(String lotNumber) {
@@ -144,7 +159,6 @@ public class AssignTask extends BasePage {
 	
 	public void getOrderData(){
 		for (int i = 1; i < checkOrderItemsData.size()-1; i++) {
-			System.out.println(checkOrderItemsData.get(i).getText());
 		}
 	}
 	
@@ -152,13 +166,45 @@ public class AssignTask extends BasePage {
 	List<WebElement> assignOrderItemQuantity;
 	
 	public void enterOrderItemQuantity(String orderQuantity){
-		for (int i = 1; i < assignOrderItemQuantity.size(); i++) {
 			
-			for (int j = 1; j >0 ; j++) {
+			for (int j = 1; j < assignOrderItemQuantity.size()+1 ; j++) {
 				String orderPackInputBox= "div[formarrayname='budOrderPackets']>p-table>div>div>table>tbody>tr:nth-child("+j+")>td>input";
 				WebElement orderQtyIputBox= driver.findElement(By.cssSelector(orderPackInputBox));
 				enterData(orderQtyIputBox, orderQuantity);
 			}
+	}
+	
+	@FindAll({@FindBy(css="form>div>app-bud-packaging>div>div:nth-child(4)>p-table>div>div>table>tbody>tr")})
+	List<WebElement> strainRowCount;
+	
+	public void clickOnSelectLot(String strainName){
+		for (int i = 1; i < strainRowCount.size()+1; i++) {
+			WebElement strainNameOrderDetails= driver.findElement(By.cssSelector("form>div>app-bud-packaging>div>div:nth-child(4)>p-table>div>div>table>tbody>tr:nth-child("+i+")>td:nth-child(1)"));
+			if (strainNameOrderDetails.getText().equalsIgnoreCase(strainName)) {
+				WebElement clickOnSelectLotText = driver.findElement(By.cssSelector("form>div>app-bud-packaging>div>div:nth-child(4)>p-table>div>div>table>tbody>tr:nth-child("+i+")>td:nth-child(2)>a"));
+				scrollToElement(clickOnSelectLotText);
+				clickOnSelectLotText.click();
+			}
+			
 		}
+	}
+	
+	@FindAll({@FindBy(css="p-table[id='tblLotSelection']>div>div>table>tbody>tr")})
+	List<WebElement> lotRowsPopUp;
+	
+	public void selectLotAndEnterWeight(String stateLotNo , String assignWeight){
+		for (int i = 1; i < lotRowsPopUp.size()+1; i++) {
+			WebElement getLotNumber=driver.findElement(By.cssSelector("p-table[id='tblLotSelection']>div>div>table>tbody>tr:nth-child("+i+")>td:nth-child(1)>p-checkbox>label"));
+			if (getLotNumber.getText().equalsIgnoreCase(stateLotNo)) {
+				getLotNumber.click();
+				WebElement enterWeight=driver.findElement(By.cssSelector("p-table[id='tblLotSelection']>div>div>table>tbody>tr:nth-child("+i+")>td:nth-child(3)>input"));
+				enterWeight.sendKeys(assignWeight);
+			}
+		}
+		
+	}
+	
+	public void clickOnConfrimLotSelection(){
+		lotSelectionConfBtn.click();
 	}
 }

@@ -18,7 +18,13 @@ public class DataProviders {
 		Object[][] arrayObject = ExcelReader.getExcelData(Constants.lotEntryFile, "Sheet1");
 		return arrayObject;
 	}
-
+	
+	@DataProvider(name = "LotEntryDataIsTrimmedTrue")
+	public Object[][] lotEntryDataIsTrimmed() throws BiffException, Exception {
+		Object[][] arrayObject = ExcelReader.getExcelData(Constants.lotEntryFile, "Sheet2");
+		return arrayObject;
+	}
+	
 	@DataProvider(name = "TrimmingTaskData")
 	public Object[][] trimmingTaskData() throws BiffException, Exception {
 		Object[][] arrayObject = ExcelReader.getExcelData(Constants.taskAssignFile, "Sheet1");

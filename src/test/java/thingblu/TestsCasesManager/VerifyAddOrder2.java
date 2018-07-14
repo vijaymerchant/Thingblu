@@ -3,17 +3,15 @@ package thingblu.TestsCasesManager;
 import org.testng.annotations.Test;
 
 import thingblu.core.Config;
-import thingblu.core.DataProviders;
 import thingblu.utility.ExcelReader;
 
-public class VerifyAddOrder extends Config {
+public class VerifyAddOrder2 extends Config {
 	public int Rowcount = 1;
 	String checkType = "";
 	int totalrowcount = 1;
 
-	@Test(dataProvider = "Apackdata", dataProviderClass = DataProviders.class)
-	public void signInWithValidCredentials(String typeName, String brand, String subBrand, String strain,
-			String packType, String packSize, String packQty, String orderItemQty) throws Exception {
+	@Test
+	public void signInWithValidCredentials(String typeName) throws Exception {
 		int panelNo = 0;
 		navigation.clickOnOrderMenuItem();
 		Thread.sleep(2000);
@@ -22,6 +20,7 @@ public class VerifyAddOrder extends Config {
 		orderEntryPage.selectRetailerName("Cokin");
 		orderEntryPage.clickOnCalander("18");
 		orderEntryPage.enterS2OrderID("98989954");
+		typeName="Bud";
 		if (checkType == "") {
 			checkType = typeName;
 			Rowcount++;
@@ -52,13 +51,10 @@ public class VerifyAddOrder extends Config {
 		default:
 		}
 
-		orderEntryPage.selectBudBrand(brand, Rowcount, panelNo);
-		orderEntryPage.selectBudSubBrand(subBrand, Rowcount, panelNo);
-		orderEntryPage.selectBudStrain(strain, Rowcount, panelNo);
-		orderEntryPage.selectBudPackageType(packType, Rowcount, panelNo);
-		orderEntryPage.selectBudPackageSize(packSize, Rowcount, panelNo);
-		orderEntryPage.selectBudPackageItemQty(packQty, Rowcount, panelNo);
-		orderEntryPage.enterOrderQty(orderItemQty, Rowcount, panelNo);
+		orderEntryPage.selectBudBrand("El Ella", Rowcount, panelNo);
+		orderEntryPage.selectBudSubBrand("-- Select --", Rowcount, panelNo);
+		orderEntryPage.selectBudStrain("Blackberry Kush", Rowcount, panelNo);
+		
 
 		totalrowcount++;
 		if (ExcelReader.getTotalRowCount("D:\\somanath\\automation_work\\ThingBluTest\\src\\test\\resources\\test-data\\orderEntryData.xls",

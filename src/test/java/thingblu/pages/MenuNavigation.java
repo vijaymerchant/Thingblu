@@ -30,12 +30,19 @@ public class MenuNavigation extends BasePage {
 	@FindBy(css="a[ng-reflect-router-link='assigntask']>span")
 	WebElement assigntask;
 	
+	@FindBy(css="span[ng-reflect-ng-class='fa-sign-out']+span")
+	WebElement signOutLink;
+	
+	public void clickOnSignOut(){
+		click(signOutLink);
+	}
+	
 	public void getMenuText(){
 		System.out.println("menu utem name is :" +OrderRequestForm.getText());
 	}
 	
-	public void clickOnNewLOtMenuItem(String MenuName){
-		if (newLot.getText().equalsIgnoreCase(MenuName)) {
+	public void clickOnNewLOtMenuItem(){
+		if (newLot.getText().equalsIgnoreCase("New Lot Entry")) {
 			newLot.click();
 		}
 	}

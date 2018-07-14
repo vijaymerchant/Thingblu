@@ -45,51 +45,114 @@ public class LotEntry extends BasePage{
 	@FindBy(id="shortOverWeight")
 	WebElement shortOverWeight;
 	
-	@FindBy(css="p-dropdown=[formcontrolname='trimmed']")
+	@FindBy(css="p-dropdown[name='ddlStrain']")
 	WebElement isTrimmed;
-	@FindAll({ @FindBy(css="p-dropdown=[formcontrolname='trimmed']>div>div:nth-child(4)>div>ul>li>span") })
+	@FindAll({ @FindBy(css="p-dropdown[name='ddlStrain']>div>div:nth-child(4)>div>ul>li>span") })
 	List<WebElement> isTrimmedList;
 	
-	@FindBy(id="btnLotSave")
+	@FindBy(id="BUD_WT")
+	WebElement enterBudweight;
+
+	@FindBy(id = "JOINTS_WT")
+	WebElement enterJointsWeight;
+
+	@FindBy(id = "btnLotSave")
 	WebElement saveBtn;
-	
-	
-	public void selectGrower(String growerName){
+
+	@FindBy(css = "div[class='ui-growl-message']>p")
+	WebElement alertMessagePopUp;
+
+	@FindBy(id = "thc")
+	WebElement THC;
+
+	@FindBy(id = "thca")
+	WebElement THCA;
+
+	@FindBy(id = "cbd")
+	WebElement CBD;
+
+	@FindBy(id = "cbda")
+	WebElement CBDA;
+
+	@FindBy(id = "totalthc")
+	WebElement totalTHC;
+
+	public void selectGrower(String growerName) {
 		selectItemFromDrpDwn(growserDrpDwn, growerList, growerName);
 	}
-	
-	public void selectStrain(String strainName){
+
+	public void selectStrain(String strainName) {
 		selectItemFromDrpDwn(strainDrpDwn, strainList, strainName);
 	}
-	
-	public void enterLotnumber(String lotNumber){
-		enterData(growerLotNo,lotNumber);
+
+	public void enterTHCValue(float THCValue) {
+		enterFloatData(THC, THCValue);
 	}
 
-	public void selectLotType(String lotTypeName){
+	public void enterTHCAValue(float THCAValue) {
+		enterFloatData(THCA, THCAValue);
+	}
+
+	public void enterCBDvalue(float CBDvalue) {
+		enterFloatData(CBD, CBDvalue);
+	}
+
+	public void enterCBDAvalue(float CBDAvalue) {
+		enterFloatData(CBDA, CBDAvalue);
+	}
+
+	public void entertotalTHCVlaue(float totalTHCVlaue) {
+		enterFloatData(totalTHC, totalTHCVlaue);
+	}
+
+	public void enterLotnumber(String lotNumber) {
+		enterData(growerLotNo, lotNumber);
+	}
+
+	public void selectLotType(String lotTypeName) {
 		selectItemFromDrpDwn(lotTypeDrpDwn, lotTypeList, lotTypeName);
 	}
-	
-	public void enterLotTransferWgt(String lotTransferWgt){
-		enterData(transferWeight,lotTransferWgt);
+
+	public void enterLotTransferWgt(String lotTransferWgt) {
+		enterData(transferWeight, lotTransferWgt);
 	}
-	
-	public void enterLotStartWgt(String lotStartWgt){
-		enterData(startWeight,lotStartWgt);
+
+	public void enterLotStartWgt(String lotStartWgt) {
+		enterData(startWeight, lotStartWgt);
 	}
-	
-	public void enterLotCost(String lotCostAmmount){
-		enterData(lotCost,lotCostAmmount);
+
+	public void enterLotCost(String lotCostAmmount) {
+		enterData(lotCost, lotCostAmmount);
 	}
-	
-	public void selectIsTrimmedOption(String isTrimmedName){
+
+	public void selectIsTrimmedOption(String isTrimmedName) {
 		selectItemFromDrpDwn(isTrimmed, isTrimmedList, isTrimmedName);
 	}
-	
-	public void clickOnSaveBtn(){
+
+	public void enterBudMaterialWeight(String budWeight) {
+		enterData(enterBudweight, budWeight);
+	}
+
+	public void enterJointsMaterialWeight(String jointsWeight) {
+		enterData(enterJointsWeight, jointsWeight);
+	}
+
+	public void mathcSumOfMaterial(String lotstartWeight, String lotBudWeight, String lotJouintsWeight) {
+		float lotStartweight = Float.parseFloat(lotstartWeight);
+		float totalWeight = Float.parseFloat(lotBudWeight) + Integer.parseInt(lotJouintsWeight);
+		if (lotStartweight == totalWeight) {
+			System.out.println("Lot start weight and sum of bud & joints materila is not match.");
+		} else {
+			System.out.println("Lot weight not match");
+		}
+	}
+
+	public void clickOnSaveBtn() {
 		click(saveBtn);
 	}
-	
-	
+
+	public String getAlertMessagePopUpText() {
+		return alertMessagePopUp.getText();
+	}
 
 }

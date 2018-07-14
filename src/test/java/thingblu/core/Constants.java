@@ -20,9 +20,10 @@ public class Constants {
 	
 	
 	//Excel file locations
-	public static final String lotEntryFile ="D:\\somanath\\AutomationData\\Thingblu-Testdata\\Lot-Entry-Data.xls";
-	public static final String orderDataFile="D:\\somanath\\AutomationData\\Thingblu-Testdata\\orderEntryData.xls";
-	public static final String taskAssignFile ="D:\\somanath\\AutomationData\\Thingblu-Testdata\\TaskAssignData.xls";
+	public static final String folderPath="D:\\somanath\\automation_work\\ThingBluTest\\src\\test\\resources\\test-data\\";
+	public static final String lotEntryFile =folderPath.concat("Lot-Entry-Data.xls");
+	public static final String orderDataFile=folderPath.concat("orderEntryData.xls");
+	public static final String taskAssignFile =folderPath.concat("TaskAssignData.xls");
 	
 			
 			

@@ -1,5 +1,7 @@
 package thingblu.core;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
@@ -39,6 +41,27 @@ public class BasePage {
 	public void enterData(WebElement element, String dataName){
 		element.clear();
 		element.sendKeys(dataName);
+	}
+	
+	public void enterFloatData(WebElement element, float data){
+		element.clear();
+		String str = String.valueOf(data);
+		element.sendKeys(str);
+	}
+	
+	public void enterIntData(WebElement element, int data){
+		element.clear();
+		String str = String.valueOf(data);
+		element.sendKeys(str);
+	}
+	
+	public void scrollToElement(WebElement element ){
+		try {
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+			Thread.sleep(500);
+		} catch (Exception e) {
+			System.out.println("not able to scroll. " +e.getMessage());
+		}
 	}
 
 	public void selectItemFromDrpDwn(WebElement eleToClick,List<WebElement> drpDwnList, String itemName){
@@ -108,5 +131,10 @@ public class BasePage {
 		select.selectByVisibleText(value);
 	}
 	
+	public String getCurrentDate() {
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		LocalDateTime now = LocalDateTime.now();
+		return dtf.format(now);
+	}
 	
 }

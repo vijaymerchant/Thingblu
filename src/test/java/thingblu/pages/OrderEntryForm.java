@@ -49,11 +49,16 @@ public class OrderEntryForm extends BasePage {
 	@FindBy(css="form>div:nth-child(5)>button[label='Save']")
 	WebElement submitbutton;
 	
+	@FindBy(css="p-panel[ng-reflect-header='Order Request Form']")
+	WebElement panelHeader;
+	
 	public void selectRetailerName(String retailerName) {
+		scrollToElement(panelHeader);
 		selectItemFromDrpDwn(retailerDrpDwn, retlrName, retailerName);
 	}
 
 	public void clickOnCalander(String date) {
+		scrollToElement(panelHeader);
 		click(clickClndr);
 		for (int i = 1; i < clndrDates.size(); i++) {
 			if (clndrDates.get(i).getText().equalsIgnoreCase(date)) {
@@ -64,14 +69,17 @@ public class OrderEntryForm extends BasePage {
 	}
 
 	public void enterS2OrderID(String s2OrderID) {
+		scrollToElement(panelHeader);
 		enterData(OrderIdInput, s2OrderID);
 	}
 
 	public void clickOnBudPlusIcon() {
+		scrollToElement(budplusIcon);
 		click(budplusIcon);
 	}
 
 	public void clickOnOilPlusIcon() {
+		scrollToElement(oilplusIcon);
 		click(oilplusIcon);
 	}
 	
@@ -90,6 +98,7 @@ public class OrderEntryForm extends BasePage {
 	}
 	
 	public void clickOnJointsPlusIcon() {
+		scrollToElement(jointsplusIcon);
 		click(jointsplusIcon);
 	}
 
@@ -100,7 +109,7 @@ public class OrderEntryForm extends BasePage {
 			Thread.sleep(1000);
 			String rowinterator = "div>form>p-fieldset:nth-child("+panelNo+")>fieldset>div:nth-child(2)>div>div>div>div:nth-child("+j+")>div>div:nth-child(1)>p-dropdown>div>div:nth-child(4)>div:nth-child(2)>ul>li>span";
 			List<WebElement> budBrandList = driver.findElements(By.cssSelector(rowinterator));
-			for (int i = 1; i < budBrandList.size(); i++) {
+			for (int i = 1; i < budBrandList.size()+1; i++) {
 				if (budBrandList.get(i).getText().equalsIgnoreCase(budBrandName)) {
 					budBrandList.get(i).click();
 					break;
@@ -117,6 +126,7 @@ public class OrderEntryForm extends BasePage {
 			Thread.sleep(1000);
 			String rowinterator = "div>form>p-fieldset:nth-child("+panelNo+")>fieldset>div:nth-child(2)>div>div>div>div:nth-child("+j+")>div>div:nth-child(2)>p-dropdown>div>div:nth-child(4)>div:nth-child(2)>ul>li>span";
 			List<WebElement> budSubBrandList = driver.findElements(By.cssSelector(rowinterator));
+
 			for (int i = 1; i < budSubBrandList.size(); i++) {
 				if (budSubBrandList.get(i).getText().equalsIgnoreCase(budSubBrandName)) {
 					budSubBrandList.get(i).click();
@@ -134,7 +144,7 @@ public class OrderEntryForm extends BasePage {
 			Thread.sleep(1000);
 			String rowinterator = "div>form>p-fieldset:nth-child("+panelNo+")>fieldset>div:nth-child(2)>div>div>div>div:nth-child("+j+")>div>div:nth-child(3)>p-dropdown>div>div:nth-child(4)>div:nth-child(2)>ul>li>span";
 			List<WebElement> budStrainList = driver.findElements(By.cssSelector(rowinterator));
-			for (int i = 1; i < budStrainList.size(); i++) {
+			for (int i = 1; i < budStrainList.size()+1; i++) {
 				if (budStrainList.get(i).getText().equalsIgnoreCase(budStrainName)) {
 					budStrainList.get(i).click();
 					break;
@@ -151,7 +161,7 @@ public class OrderEntryForm extends BasePage {
 			Thread.sleep(1000);
 			String rowinterator = "div>form>p-fieldset:nth-child("+panelNo+")>fieldset>div:nth-child(2)>div>div>div>div:nth-child("+j+")>div>div:nth-child(4)>p-dropdown>div>div:nth-child(4)>div>ul>li>span";
 			List<WebElement> budPackTypeList = driver.findElements(By.cssSelector(rowinterator));
-			for (int i = 1; i < budPackTypeList.size(); i++) {
+			for (int i = 1; i < budPackTypeList.size()+1; i++) {
 				if (budPackTypeList.get(i).getText().equalsIgnoreCase(budPackName)) {
 					budPackTypeList.get(i).click();
 					break;
@@ -168,7 +178,7 @@ public class OrderEntryForm extends BasePage {
 			Thread.sleep(1000);
 			String rowinterator = "div>form>p-fieldset:nth-child("+panelNo+")>fieldset>div:nth-child(2)>div>div>div>div:nth-child("+j+")>div>div:nth-child(5)>p-dropdown>div>div:nth-child(4)>div>ul>li>span";
 			List<WebElement> budPackSizeList = driver.findElements(By.cssSelector(rowinterator));
-			for (int i = 1; i < budPackSizeList.size(); i++) {
+			for (int i = 1; i < budPackSizeList.size()+1; i++) {
 				if (budPackSizeList.get(i).getText().equalsIgnoreCase(budPackSizeName)) {
 					budPackSizeList.get(i).click();
 					break;
@@ -185,7 +195,7 @@ public class OrderEntryForm extends BasePage {
 			Thread.sleep(1000);
 			String rowinterator = "div>form>p-fieldset:nth-child("+panelNo+")>fieldset>div:nth-child(2)>div>div>div>div:nth-child("+j+")>div>div:nth-child(6)>p-dropdown>div>div:nth-child(4)>div>ul>li>span";
 			List<WebElement> budPackItemQtyList = driver.findElements(By.cssSelector(rowinterator));
-			for (int i = 1; i < budPackItemQtyList.size(); i++) {
+			for (int i = 1; i < budPackItemQtyList.size()+1; i++) {
 				if (budPackItemQtyList.get(i).getText().equalsIgnoreCase(budPackItemQty)) {
 					budPackItemQtyList.get(i).click();
 					break;

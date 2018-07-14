@@ -3,7 +3,6 @@ package thingblu.TestsCasesManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 import thingblu.core.Config;
 import thingblu.core.DataProviders;
 import thingblu.utility.ReadPropertiesFile;
@@ -12,6 +11,7 @@ public class assignTrimmingTask extends Config {
 
 	@Test(dataProvider="TrimmingTaskData" , dataProviderClass=DataProviders.class)
 	public void verifyAssignTrimmingTask(String taskName,String lotNo, String Emp, String stDate, String priority, String comment, String notiCheckManager,String notiCheckEmp ) throws Exception {
+		logInToApplicationAs("Manager");
 		navigation.clickOnTaskMenuItem();
 		Thread.sleep(2000);
 		navigation.clickOnAssignTaskMenuItem();
@@ -27,5 +27,6 @@ public class assignTrimmingTask extends Config {
 		assignTaskPage.clickOnAssignTaskBtn();
 		Assert.assertEquals(assignTaskPage.getAlertMessagePopUpText(), ReadPropertiesFile.getDataFromProperties("successfulTaskAssign"));
 		System.out.println("Task is successfully assigned.");
+		navigation.clickOnSignOut();
 	}
 }
