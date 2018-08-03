@@ -8,15 +8,17 @@ import thingblu.core.Config;
 import thingblu.core.DataProviders;
 import thingblu.utility.ReadPropertiesFile;
 
-public class assignSiftingTask extends Config {
+public class Mngr_AssignSiftingTask extends Config {
 
 	@Test(dataProvider="SiftingTaskData" , dataProviderClass=DataProviders.class)
-	public void verifyAssignGrindingTask(String taskName,String lotNo, String Emp, String assignWt, String stDate, String priority, String comment, String notiCheckManager,String notiCheckEmp ) throws Exception {
+	public void verifyAssignGrindingTask(String taskName,String strain,String lotNo, String Emp, String assignWt, String stDate, String priority, String comment, String notiCheckManager,String notiCheckEmp ) throws Exception {
+		logInToApplicationAs("Manager");
 		navigation.clickOnTaskMenuItem();
 		Thread.sleep(2000);
 		navigation.clickOnAssignTaskMenuItem();
 		assignTaskPage.selectTask(taskName);
 		Thread.sleep(5000);
+		assignTaskPage.selectStarin(strain);
 		assignTaskPage.selectLotNumber(lotNo);
 		assignTaskPage.selectEmployee(Emp);
 		assignTaskPage.enterAssignwt(assignWt);

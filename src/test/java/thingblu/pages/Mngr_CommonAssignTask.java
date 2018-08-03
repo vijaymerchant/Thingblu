@@ -10,8 +10,8 @@ import org.openqa.selenium.support.FindBy;
 
 import thingblu.core.BasePage;
 
-public class AssignTask extends BasePage {
-	public AssignTask(WebDriver driver) {
+public class Mngr_CommonAssignTask extends BasePage {
+	public Mngr_CommonAssignTask(WebDriver driver) {
 		super(driver);
 	}
 

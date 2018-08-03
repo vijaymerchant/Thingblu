@@ -9,9 +9,9 @@ import org.openqa.selenium.support.FindBy;
 
 import thingblu.core.BasePage;
 
-public class LotEntry extends BasePage{
+public class Mngr_LotEntry extends BasePage{
 
-	public LotEntry(WebDriver driver) {
+	public Mngr_LotEntry(WebDriver driver) {
 		super(driver);
 	}
 	
@@ -85,24 +85,43 @@ public class LotEntry extends BasePage{
 		selectItemFromDrpDwn(strainDrpDwn, strainList, strainName);
 	}
 
-	public void enterTHCValue(float THCValue) {
-		enterFloatData(THC, THCValue);
+	public void clickOnStraiDrp(){
+		click(strainDrpDwn);
+		
+	}
+	public void matchStrain(String strainName){
+		int a=76;
+		for (int i = 1; i < strainList.size(); i++) {
+			if (strainList.get(i).getText().equalsIgnoreCase(strainName)) {
+				a=i;
+				break;
+			}
+		}
+		if (a<76) {
+			System.out.println("Starin matched" + strainList.get(a).getText());
+		}else {
+			System.out.println("Starin not matched. Strain name: "+ strainList.get(a).getText());
+		}
+		
+	}
+	public void enterTHCValue(double THCValue) {
+		enterDoubleData(THC, THCValue);
 	}
 
-	public void enterTHCAValue(float THCAValue) {
-		enterFloatData(THCA, THCAValue);
+	public void enterTHCAValue(double THCAValue) {
+		enterDoubleData(THCA, THCAValue);
 	}
 
-	public void enterCBDvalue(float CBDvalue) {
-		enterFloatData(CBD, CBDvalue);
+	public void enterCBDvalue(double CBDvalue) {
+		enterDoubleData(CBD, CBDvalue);
 	}
 
-	public void enterCBDAvalue(float CBDAvalue) {
-		enterFloatData(CBDA, CBDAvalue);
+	public void enterCBDAvalue(double CBDAvalue) {
+		enterDoubleData(CBDA, CBDAvalue);
 	}
 
-	public void entertotalTHCVlaue(float totalTHCVlaue) {
-		enterFloatData(totalTHC, totalTHCVlaue);
+	public void entertotalTHCVlaue(double totalTHCVlaue) {
+		enterDoubleData(totalTHC, totalTHCVlaue);
 	}
 
 	public void enterLotnumber(String lotNumber) {

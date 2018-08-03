@@ -8,9 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import thingblu.core.BasePage;
 import thingblu.utility.ElementHighlighter;
 
-public class SignInPage extends BasePage{
+public class Common_SignInPage extends BasePage{
 
-	public SignInPage(WebDriver driver) {
+	public Common_SignInPage(WebDriver driver) {
 		super(driver);
 	}
 	

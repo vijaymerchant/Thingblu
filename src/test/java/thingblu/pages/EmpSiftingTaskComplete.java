@@ -33,4 +33,9 @@ public class EmpSiftingTaskComplete extends BasePage {
 		enterData(oilWeightInputBox, oilsWeight);
 	}
 
+	public void enterTaskcomment(String taskComment) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

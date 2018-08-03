@@ -4,10 +4,11 @@ import org.testng.annotations.Test;
 
 import thingblu.core.Config;
 
-public class AssignABudPackagingBrandingTask extends Config {
+public class Mngr_AssignBudPackagingBrandingTask extends Config {
 
 	@Test
 	public void verifyAssignGrindingTask() throws Exception {
+		logInToApplicationAs("Manager");
 		navigation.clickOnTaskMenuItem();
 		Thread.sleep(2000);
 		navigation.clickOnAssignTaskMenuItem();

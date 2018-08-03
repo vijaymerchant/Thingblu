@@ -8,15 +8,17 @@ import thingblu.core.Config;
 import thingblu.core.DataProviders;
 import thingblu.utility.ReadPropertiesFile;
 
-public class GrindingTask extends Config {
+public class Mngr_JointsCreationTask extends Config {
 
-	@Test(dataProvider="GrindingTaskData" , dataProviderClass=DataProviders.class)
-	public void verifyAssignTrimmingTask(String taskName,String lotNo, String Emp, String assignWt, String stDate, String priority, String comment, String notiCheckManager,String notiCheckEmp ) throws Exception {
+	@Test(dataProvider="JointsTaskData" , dataProviderClass=DataProviders.class)
+	public void verifyAssignTrimmingTask(String taskName,String strain,String lotNo, String Emp, String assignWt, String stDate, String priority, String comment, String notiCheckManager,String notiCheckEmp ) throws Exception {
+		logInToApplicationAs("Manager");
 		navigation.clickOnTaskMenuItem();
 		Thread.sleep(2000);
 		navigation.clickOnAssignTaskMenuItem();
 		assignTaskPage.selectTask(taskName);
 		Thread.sleep(5000);
+		assignTaskPage.selectStarin(strain);
 		assignTaskPage.selectLotNumber(lotNo);
 		assignTaskPage.selectEmployee(Emp);
 		assignTaskPage.enterAssignwt(assignWt);

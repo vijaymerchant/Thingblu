@@ -6,7 +6,7 @@ import thingblu.core.Config;
 import thingblu.core.DataProviders;
 import thingblu.utility.ExcelReader;
 
-public class VerifyAddOrder extends Config {
+public class Mngr_AddNewOrder extends Config {
 	public int Rowcount = 1;
 	String checkType = "";
 	int totalrowcount = 1;

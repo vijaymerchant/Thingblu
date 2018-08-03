@@ -10,9 +10,9 @@ import org.openqa.selenium.support.FindBy;
 
 import thingblu.core.BasePage;
 
-public class OrderEntryForm extends BasePage {
+public class Mngr_OrderEntryForm extends BasePage {
 
-	public OrderEntryForm(WebDriver driver) {
+	public Mngr_OrderEntryForm(WebDriver driver) {
 		super(driver);
 	}
 

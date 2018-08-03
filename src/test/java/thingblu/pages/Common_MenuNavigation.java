@@ -6,9 +6,9 @@ import org.openqa.selenium.support.FindBy;
 
 import thingblu.core.BasePage;
 
-public class MenuNavigation extends BasePage {
+public class Common_MenuNavigation extends BasePage {
 
-	public MenuNavigation(WebDriver driver) {
+	public Common_MenuNavigation(WebDriver driver) {
 		super(driver);
 	}
 

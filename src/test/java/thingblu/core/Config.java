@@ -1,45 +1,57 @@
 package thingblu.core;
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeClass;
 
-import thingblu.pages.AssignTask;
+import thingblu.pages.Common_MenuNavigation;
+import thingblu.pages.Common_SignInPage;
+import thingblu.pages.EmpSiftingTaskComplete;
+import thingblu.pages.EmpTrimmingTaskComplete;
 import thingblu.pages.Emp_DashboardCommon;
-import thingblu.pages.LotEntry;
-import thingblu.pages.MenuNavigation;
+import thingblu.pages.Mngr_CommonAssignTask;
 import thingblu.pages.Mngr_DashboardCommon;
-import thingblu.pages.OrderEntryForm;
-import thingblu.pages.SignInPage;
+import thingblu.pages.Mngr_LotEntry;
+import thingblu.pages.Mngr_OrderEntryForm;
+import thingblu.pages.Mngr_SiftingTaskReview;
+import thingblu.pages.Mngr_TrimmingTaskReview;
 
 public class Config {
 	protected WebDriver driver;
-	protected Logger logger;
 
-	protected SignInPage signIn;
-	protected MenuNavigation navigation;
-	protected OrderEntryForm orderEntryPage;
-	protected LotEntry lotEntryPage;
-	protected AssignTask assignTaskPage;
-	protected Emp_DashboardCommon emp_dashboard;
-	protected Mngr_DashboardCommon mngr_dashboard;
+
+	protected Common_SignInPage signIn;
+	protected Common_MenuNavigation navigation;
+	protected Mngr_OrderEntryForm orderEntryPage;
+	protected Mngr_LotEntry lotEntryPage;
+	protected Mngr_CommonAssignTask assignTaskPage;
+	protected Emp_DashboardCommon emp_dashboardCommon;
+	protected Mngr_DashboardCommon mngr_dashboardCommon;
+	protected EmpSiftingTaskComplete emp_siftingTask;
+	protected EmpTrimmingTaskComplete emp_trimmingTask;
+	protected Mngr_TrimmingTaskReview mngr_trimmingTaskReview;
+	protected Mngr_SiftingTaskReview mngr_siftingTaskReview;
+	
 
 	@BeforeClass
-	public void initBrowser() {
-		// logger = Logger.getLogger(getClass());
+	public void initBrowser() throws Exception {
+		
 		// PropertyConfigurator.configure("D:\\somanath\\gitRepositoryData\\math2shine\\logs\\log4j.properties");
 		// report = new
 		// ExtentReports("D:\\somanath\\gitRepositoryData\\math2shine\\reports\\math2shine.html")
 		driver = WebDriverManager.getInstance("chrome");
 
-		signIn = PageFactory.initElements(driver, SignInPage.class);
-		navigation = PageFactory.initElements(driver, MenuNavigation.class);
-		orderEntryPage = PageFactory.initElements(driver, OrderEntryForm.class);
-		lotEntryPage = PageFactory.initElements(driver, LotEntry.class);
-		assignTaskPage = PageFactory.initElements(driver, AssignTask.class);
-		emp_dashboard = PageFactory.initElements(driver, Emp_DashboardCommon.class);
-		mngr_dashboard = PageFactory.initElements(driver, Mngr_DashboardCommon.class);
+		signIn = PageFactory.initElements(driver, Common_SignInPage.class);
+		navigation = PageFactory.initElements(driver, Common_MenuNavigation.class);
+		orderEntryPage = PageFactory.initElements(driver, Mngr_OrderEntryForm.class);
+		lotEntryPage = PageFactory.initElements(driver, Mngr_LotEntry.class);
+		assignTaskPage = PageFactory.initElements(driver, Mngr_CommonAssignTask.class);
+		emp_dashboardCommon = PageFactory.initElements(driver, Emp_DashboardCommon.class);
+		mngr_dashboardCommon = PageFactory.initElements(driver, Mngr_DashboardCommon.class);
+		emp_siftingTask = PageFactory.initElements(driver, EmpSiftingTaskComplete.class);
+		emp_trimmingTask = PageFactory.initElements(driver, EmpTrimmingTaskComplete.class);
+		mngr_trimmingTaskReview = PageFactory.initElements(driver, Mngr_TrimmingTaskReview.class);
+		mngr_siftingTaskReview = PageFactory.initElements(driver, Mngr_SiftingTaskReview.class);
 
 		driver.get(Constants.testLink);
 	}
@@ -71,7 +83,7 @@ public class Config {
 		switch (userRole) {
 		case "Manager":
 			try {
-				logIntoSystemAsManager("Th!ngblu", "123456");
+				logIntoSystemAsManager("Megan", "111113");
 				Thread.sleep(5000);
 			} catch (Exception e) {
 				System.out.println("Exception occurs while log in as a manager : "+e.getMessage());

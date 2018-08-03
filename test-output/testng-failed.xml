@@ -3,12 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="thingblu.TestsCasesManager.SiftingTaskReview">
+      <class name="thingblu.TestsCasesManager.TestClass">
         <methods>
-          <include name="VerifySiftingTaskreview"/>
-          <include name="initBrowser"/>
+          <include name="GetWeatherDetailsCondensed"/>
         </methods>
-      </class> <!-- thingblu.TestsCasesManager.SiftingTaskReview -->
+      </class> <!-- thingblu.TestsCasesManager.TestClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

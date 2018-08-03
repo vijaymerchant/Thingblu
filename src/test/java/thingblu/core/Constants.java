@@ -14,9 +14,11 @@ public class Constants {
 	public static final String userTypes = "";
 	
 	//file locations
-	public final String log4jFilePath = "D:\\somanath\\automation_work\\Thingblu\\Loggers\\log4j.properties";
 	public final String testReportFilePath = "D:\\somanath\\automation_work\\Thingblu\\TestReports\\thingbluTestReport.html";
+	
+	//Properties files
 	public static final String propertiesFilePath="D:\\somanath\\automation_work\\ThingBluTest\\src\\test\\resources\\projectdata.properties";
+	public static final String SQLQueriesFilePath="D:\\somanath\\automation_work\\ThingBluTest\\src\\test\\resources\\SQLQueries.properties";
 	
 	
 	//Excel file locations

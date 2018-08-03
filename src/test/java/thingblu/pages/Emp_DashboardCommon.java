@@ -1,5 +1,6 @@
 package thingblu.pages;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -48,6 +49,12 @@ public class Emp_DashboardCommon extends BasePage{
 	@FindBy(css="button[label='Complete']")
 	WebElement completeEmpTaskButton;
 	
+	@FindBy(css="button[label='Confirm']")
+	WebElement confrimEmpTaskButton;
+	
+	@FindBy(css="button[label='Cancel']")
+	WebElement cancelEmpTaskButton;
+	
 	
 	
 	public void listOfAllStatusTabsEmp(){
@@ -57,34 +64,40 @@ public class Emp_DashboardCommon extends BasePage{
 	}
 	
 	
-	public void clickOnStatusTab(String taskStartDate) throws Exception{
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
-		Date date = new Date();  
-	    String currentDate= sdf.format(date);
-        Date cDate = sdf.parse(currentDate);
-        Date tDate = sdf.parse(taskStartDate);
-        
-        if (tDate.after(cDate)) {
-        	futureTask.click();
-        	System.out.println("clicked on furture task");
-        }
+	public void selectStatusTab(String taskStartDate) {
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+			Date date = new Date();
+			String currentDate = sdf.format(date);
+			Date cDate;
+			cDate = sdf.parse(currentDate);
+			Date tDate = sdf.parse(taskStartDate);
 
-        if (tDate.before(cDate)) {
-        	delayedTask.click();
-        	System.out.println("clicked on delayed task");
-        }
+			if (tDate.after(cDate)) {
+				futureTask.click();
+				System.out.println("clicked on furture task");
+			}
 
-        if (tDate.equals(cDate)) {
-        	todaysTask.click();
-        	System.out.println("clicked on todays task");
-        }
+			else if (tDate.before(cDate)) {
+				delayedTask.click();
+				System.out.println("clicked on delayed task");
+			}
 
-    }
+			else if (tDate.equals(cDate)) {
+				todaysTask.click();
+				System.out.println("clicked on todays task");
+			}
+		} catch (ParseException e) {
+			System.out.println(
+					"Exception occurs while clicking on task status tab by using task start date:" + e.getMessage());
+		}
+
+	}
 
 	@FindAll ({ @FindBy(css="p-tabpanel[header^='Today']>div>p-table>div>div:nth-child(2)>table>tbody>tr")})
 	List<WebElement> tableRows;
 	
-	public void empSelectTaskWithTaskandStatus(String task, String status){
+	public void empSelectTaskWithTaskAndStatus(String task, String status){
 		for (int i = 1; i <tableRows.size()+1; i++) {
 			WebElement taskname=driver.findElement(By.cssSelector("p-table[ng-reflect-global-filter-fields='TaskTypeName,GrowerName,Strain']>div>div:nth-child(2)>table>tbody>tr:nth-child("+i+")>td:nth-child(1)>u>a"));
 			WebElement statusName=driver.findElement(By.cssSelector("p-table[ng-reflect-global-filter-fields='TaskTypeName,GrowerName,Strain']>div>div:nth-child(2)>table>tbody>tr:nth-child("+i+")>td:nth-child(5)"));
@@ -102,7 +115,6 @@ public class Emp_DashboardCommon extends BasePage{
 		for (int i = 1; i <tableRows.size()+1; i++) {
 			WebElement taskname=driver.findElement(By.cssSelector("p-table[ng-reflect-global-filter-fields='TaskTypeName,GrowerName,Strain']>div>div:nth-child(2)>table>tbody>tr:nth-child("+i+")>td:nth-child(1)>u>a"));
 			WebElement growerName=driver.findElement(By.cssSelector("p-table[ng-reflect-global-filter-fields='TaskTypeName,GrowerName,Strain']>div>div:nth-child(2)>table>tbody>tr:nth-child("+i+")>td:nth-child(2)"));
-		//  WebElement starinName=driver.findElement(By.cssSelector("p-table[ng-reflect-global-filter-fields='TaskTypeName,GrowerName,Strain']>div>div:nth-child(2)>table>tbody>tr:nth-child("+i+")>td:nth-child(3)"));
 			WebElement lotNumber=driver.findElement(By.cssSelector("p-table[ng-reflect-global-filter-fields='TaskTypeName,GrowerName,Strain']>div>div:nth-child(2)>table>tbody>tr:nth-child("+i+")>td:nth-child(4)"));
 			WebElement statusName=driver.findElement(By.cssSelector("p-table[ng-reflect-global-filter-fields='TaskTypeName,GrowerName,Strain']>div>div:nth-child(2)>table>tbody>tr:nth-child("+i+")>td:nth-child(5)"));
 	
@@ -116,8 +128,8 @@ public class Emp_DashboardCommon extends BasePage{
 		}
 	}
 
-	public void clcikOnButton(String ActionName) {
-		switch (ActionName) {
+	public void clcikOnButton(String actionButtonName) {
+		switch (actionButtonName) {
 		case "Start":
 			click(startEmpTaskButton);
 			break;
@@ -129,9 +141,17 @@ public class Emp_DashboardCommon extends BasePage{
 		case "Complete":
 			click(completeEmpTaskButton);
 			break;
-
+		
+		case "Confirm":
+			click(confrimEmpTaskButton);
+			break;
+			
+		case "Cancel":
+			click(cancelEmpTaskButton);
+			break;
+			
 		default:
-			System.out.println("Task is completed");
+			System.out.println("Button not found or action button's label is changed.");
 		}
 	}
 

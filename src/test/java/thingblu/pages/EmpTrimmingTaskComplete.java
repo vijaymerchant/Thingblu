@@ -38,7 +38,7 @@ public class EmpTrimmingTaskComplete extends BasePage {
 			break;
 
 		default:
-			System.out.println("No status found.");
+			System.out.println("Checkbox not found or checkbox label not match.");
 		}
 	}
 
