@@ -14,66 +14,203 @@ public class Common_MenuNavigation extends BasePage {
 
 	@FindBy(css = ".menu>ul>li:nth-child(2)>div>a>span")
 	WebElement newLot;
-	
+
 	@FindBy(css = ".menu>ul>li:nth-child(3)>div>a>span")
 	WebElement lotList;
-	
+
 	@FindBy(css = ".menu>ul>li:nth-child(4)>div>a>span")
 	WebElement order;
-	
-	@FindBy(css="a[ng-reflect-router-link='orderrequestform']>span")
+
+	@FindBy(css = "a[ng-reflect-router-link='orderrequestform']>span")
 	WebElement OrderRequestForm;
-	
+
 	@FindBy(css = ".menu>ul>li:nth-child(5)>div>a>span")
 	WebElement task;
-	
-	@FindBy(css="a[ng-reflect-router-link='assigntask']>span")
+
+	@FindBy(css = "a[ng-reflect-router-link='assigntask']>span")
 	WebElement assigntask;
-	
-	@FindBy(css="span[ng-reflect-ng-class='fa-sign-out']+span")
+
+	@FindBy(css = "span[ng-reflect-ng-class='fa-sign-out']+span")
 	WebElement signOutLink;
+
+	@FindBy(css = ".menu>ul>li:nth-child(8)>div>a>span")
+	WebElement master;
+
+	@FindBy(css = "a[ng-reflect-router-link='addnewbrand']>span")
+	WebElement addNewBrandPageLink;
+
+	@FindBy(css = "a[ng-reflect-router-link='addnewsubbrand']>span")
+	WebElement addNewSubBrand;
+
+	@FindBy(css = "a[ng-reflect-router-link='addnewpackagetype']>span")
+	WebElement addNewPackageType;
+
+	@FindBy(css = "a[ng-reflect-router-link='newproducttype']>span")
+	WebElement addNewProductType;
 	
-	public void clickOnSignOut(){
+	@FindBy(css = "a[ng-reflect-router-link='straintypemaster']>span")
+	WebElement addNewStrainType;
+	
+	@FindBy(css = "a[ng-reflect-router-link='strainmaster']>span")
+	WebElement addNewStrain;
+	
+
+	public void clickOnSignOut() {
 		click(signOutLink);
 	}
-	
-	public void getMenuText(){
-		System.out.println("menu utem name is :" +OrderRequestForm.getText());
+
+	public void clickOnNewLOtMenuItem() {
+		click(newLot);
 	}
-	
-	public void clickOnNewLOtMenuItem(){
-		if (newLot.getText().equalsIgnoreCase("New Lot Entry")) {
-			newLot.click();
+
+	public void clickOnLotListMenuItem() {
+		click(lotList);
+	}
+
+	public void clickOnOrderMenuItem() {
+		click(order);
+	}
+
+	public void clickOnOrderFormMenuItem() {
+		click(OrderRequestForm);
+	}
+
+	public void clickOnTaskMenuItem() {
+		click(task);
+	}
+
+	public void clickOnAssignTaskMenuItem() {
+		click(assigntask);
+	}
+
+	public void clickOnMastersMenuItem() {
+		click(master);
+	}
+
+	public void clickOnAddNewBarndMenuItem() {
+		//clickOnMastersMenuItem();
+		click(addNewBrandPageLink);
+	}
+
+	public void clickOnAddNewSubBarndMenuItem() {
+		try {
+			clickOnMastersMenuItem();
+			scrollToElement(addNewSubBrand);
+			Thread.sleep(1000);
+			click(addNewSubBrand);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
+
 	}
-	
-	public void clickOnLotListMenuItem(String MenuName){
-		if (lotList.getText().equalsIgnoreCase(MenuName)) {
-			lotList.click();
-		}
-	}
-	
-	public void clickOnOrderMenuItem(){
-		if (order.getText().equalsIgnoreCase("order")) {
-			order.click();
+
+	public void clickOnAddPackageTypeMenuItem() {
+		try {
+			// clickOnMastersMenuItem();
+			scrollToElement(addNewPackageType);
+			Thread.sleep(1000);
+			click(addNewPackageType);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 
-	public void clickOnOrderFormMenuItem(){
-		if (OrderRequestForm.getText().equalsIgnoreCase("Order Request Form")) {
-			OrderRequestForm.click();
+	public void clickOnAddProductTypeMenuItem() {
+
+		try {
+			// clickOnMastersMenuItem();
+			scrollToElement(addNewProductType);
+			Thread.sleep(1000);
+			click(addNewProductType);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 	
-	public void clickOnTaskMenuItem(){
-		if (task.getText().equalsIgnoreCase("Task")) {
-			task.click();
+	public void clickOnAddStrainTypeMenuItem() {
+		try {
+			// clickOnMastersMenuItem();
+			scrollToElement(addNewStrainType);
+			Thread.sleep(1000);
+			click(addNewStrainType);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
+	
+	public void clickOnAddStrainMenuItem() {
+		try {
+			// clickOnMastersMenuItem();
+			scrollToElement(addNewStrain);
+			Thread.sleep(1000);
+			click(addNewStrain);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void clickOnMenuItem(String menuName) {
 
-	public void clickOnAssignTaskMenuItem(){
-		if (assigntask.getText().equalsIgnoreCase("Assign Task")) {
-			assigntask.click();
+		switch (menuName) {
+		case "New Lot Entry":
+			  newLot.click();
+			  break;
+		case "Lot List":
+			  lotList.click();
+			  break;
+		case "Order":
+			  order.click();
+			  break;
+		case "Order Request":
+			  order.click();
+			  click(OrderRequestForm);
+			  break;
+		case "All Orders":
+			  order.click();
+			  break;
+		case "Task":
+			  click(task);
+			  break;
+		case "Assign Task":
+			  click(task);
+			  click(assigntask);
+			  break;
+		case "Manager Dashboard":
+			 
+			  break;
+		case "Masters":
+		   	  master.click();
+			  break;
+		case "New Product Type":
+			  master.click();
+			  scrollToElement(addNewProductType);
+			  addNewProductType.click();
+			  break;
+		case "New Strain Type":
+			  master.click();
+			  scrollToElement(addNewStrainType);
+			  addNewStrainType.click();
+			  break;
+		case "New Strain":
+			 // master.click();
+			  scrollToElement(addNewStrain);
+			  addNewStrain.click();
+			  break;
+		case "New Brand":
+			  master.click();
+			  scrollToElement(addNewBrandPageLink);
+			  addNewBrandPageLink.click();
+			  break;
+		case "New Sub Brand":
+			  master.click();
+			  scrollToElement(addNewSubBrand);
+			  addNewSubBrand.click();
+			  break;
+		case "New Package Type":
+			  master.click();
+			  scrollToElement(addNewPackageType);
+			  addNewPackageType.click();
+			  break; 
 		}
 	}
 }

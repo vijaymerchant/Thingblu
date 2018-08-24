@@ -4,7 +4,7 @@ import org.openqa.selenium.Platform;
 
 public class Constants {
 	
-	public static final String chromeDriverPath = "D:\\somanath\\automation_work\\Thingblu\\Drivers\\chromedriver.exe";
+	public static final String chromeDriverPath = "D:\\somanath\\automation_work\\ThingBluTest\\Drivers\\chromedriver.exe";
 	public static final String IEDriverPath = "D:\\somanath\\automation_work\\Thingblu\\Drivers\\IEDriverServer.exe";
 	public static final String firefoxDriverPath = "D:\\somanath\\automation_work\\Thingblu\\Drivers\\geckodriver.exe";
 	public static final String safariDriverPath = "";

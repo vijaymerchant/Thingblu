@@ -147,5 +147,33 @@ public class BasePage {
 		LocalDateTime now = LocalDateTime.now();
 		return dtf.format(now);
 	}
+	
+	
+	public void changeStatusOfMasterRecords(WebElement ele, WebElement els, WebElement msgTxt, WebElement popUpBtn,
+			String statusName, String MessageText) {
+		switch (statusName) {
+		case "Active":
+			if (ele.getAttribute("aria-label").equalsIgnoreCase("InputSwitch On")) {
+				System.out.println("Record is already active");
+			} else {
+				els.click();
+				msgTxt.getText().equalsIgnoreCase(MessageText);
+				popUpBtn.click();
+			}
+
+			break;
+
+		case "InActive":
+			if (ele.getAttribute("aria-label").equalsIgnoreCase("InputSwitch Off")) {
+				System.out.println("Record is already InActive");
+			} else {
+				els.click();
+				msgTxt.getText().equalsIgnoreCase(MessageText);
+				popUpBtn.click();
+			}
+			break;
+
+		}
+	}
 
 }

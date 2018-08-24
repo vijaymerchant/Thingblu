@@ -9,6 +9,12 @@ import thingblu.pages.Common_SignInPage;
 import thingblu.pages.EmpSiftingTaskComplete;
 import thingblu.pages.EmpTrimmingTaskComplete;
 import thingblu.pages.Emp_DashboardCommon;
+import thingblu.pages.Mngr_AddNewBrand;
+import thingblu.pages.Mngr_AddNewPackageType;
+import thingblu.pages.Mngr_AddNewProductType;
+import thingblu.pages.Mngr_AddNewStrain;
+import thingblu.pages.Mngr_AddNewStrainType;
+import thingblu.pages.Mngr_AddNewSubBrand;
 import thingblu.pages.Mngr_CommonAssignTask;
 import thingblu.pages.Mngr_DashboardCommon;
 import thingblu.pages.Mngr_LotEntry;
@@ -31,14 +37,16 @@ public class Config {
 	protected EmpTrimmingTaskComplete emp_trimmingTask;
 	protected Mngr_TrimmingTaskReview mngr_trimmingTaskReview;
 	protected Mngr_SiftingTaskReview mngr_siftingTaskReview;
+	protected Mngr_AddNewBrand mngr_brandMaster;
+	protected Mngr_AddNewSubBrand mngr_subBrandMaster;
+	protected Mngr_AddNewPackageType mngr_packageTypeMaster;
+	protected Mngr_AddNewProductType mngr_productTypeMaster;
+	protected Mngr_AddNewStrainType mngr_strainTypeMaster;
+	protected Mngr_AddNewStrain mngr_strainMaster;
 	
 
 	@BeforeClass
 	public void initBrowser() throws Exception {
-		
-		// PropertyConfigurator.configure("D:\\somanath\\gitRepositoryData\\math2shine\\logs\\log4j.properties");
-		// report = new
-		// ExtentReports("D:\\somanath\\gitRepositoryData\\math2shine\\reports\\math2shine.html")
 		driver = WebDriverManager.getInstance("chrome");
 
 		signIn = PageFactory.initElements(driver, Common_SignInPage.class);
@@ -52,7 +60,12 @@ public class Config {
 		emp_trimmingTask = PageFactory.initElements(driver, EmpTrimmingTaskComplete.class);
 		mngr_trimmingTaskReview = PageFactory.initElements(driver, Mngr_TrimmingTaskReview.class);
 		mngr_siftingTaskReview = PageFactory.initElements(driver, Mngr_SiftingTaskReview.class);
-
+		mngr_brandMaster = PageFactory.initElements(driver, Mngr_AddNewBrand.class);
+		mngr_subBrandMaster=PageFactory.initElements(driver, Mngr_AddNewSubBrand.class);
+		mngr_packageTypeMaster = PageFactory.initElements(driver, Mngr_AddNewPackageType.class);
+		mngr_productTypeMaster = PageFactory.initElements(driver, Mngr_AddNewProductType.class);
+		mngr_strainTypeMaster = PageFactory.initElements(driver, Mngr_AddNewStrainType.class);
+		mngr_strainMaster = PageFactory.initElements(driver, Mngr_AddNewStrain.class);		
 		driver.get(Constants.testLink);
 	}
 

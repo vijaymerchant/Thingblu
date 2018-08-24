@@ -1,5 +1,7 @@
 package thingblu.core;
 
+import java.util.HashMap;
+
 import org.testng.annotations.DataProvider;
 
 import jxl.read.biff.BiffException;
@@ -49,8 +51,7 @@ public class DataProviders {
 		Object[][] arrayObject = ExcelReader.getExcelData(Constants.taskAssignFile, "Sheet5");
 		return arrayObject;
 	}
-	
-	
+
 	
 	@DataProvider(name = "SiftingTaskData")
 	public Object[][] siftingTaskData() throws BiffException, Exception {
@@ -74,6 +75,15 @@ public class DataProviders {
 	public Object[][] jointsTaskData() throws BiffException, Exception {
 		Object[][] arrayObject = ExcelReader.getExcelData(Constants.taskAssignFile, "Sheet4");
 		return arrayObject;
+	}
+	
+	@DataProvider(name = "ProductTypeData")
+	public Object[] productTypeData() {
+		HashMap <String, String> ptData = new HashMap<String, String>();
+		ptData.put("Brand", "BrandName 100");
+		ptData.put("subBrand", "auto Sub245");
+		ptData.put("Desc", "5665");
+		return new Object[] {ptData};
 	}
 	
 	
