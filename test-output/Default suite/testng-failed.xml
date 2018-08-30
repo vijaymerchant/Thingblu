@@ -3,12 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="thingblu.TestsCasesManager.Mngr_VerifyAddNewProductType">
+      <class name="thingblu.TestsCasesManager.Mngr_AddNewLotEntry">
         <methods>
-          <include name="addNewSubBrandAndValidateStatus" invocation-numbers="0"/>
+          <include name="closeReports"/>
+          <include name="verifyLotEntry"/>
           <include name="initBrowser"/>
         </methods>
-      </class> <!-- thingblu.TestsCasesManager.Mngr_VerifyAddNewProductType -->
+      </class> <!-- thingblu.TestsCasesManager.Mngr_AddNewLotEntry -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
