@@ -16,10 +16,11 @@ public class Mngr_VerifyAddNewBrand extends Config {
 		mngr_brandMaster.enterBrandName("BrandName 781");
 		mngr_brandMaster.enterBrandDescription("decriptions of brand");
 		mngr_brandMaster.clickOnSaveBtn();
-		Assert.assertEquals(mngr_brandMaster.getAlertMessagePopUpText(), ReadPropertiesFile.getDataFromProperties("saveBrand"), "Brand Not get successfully added.");
+		Assert.assertEquals(mngr_brandMaster.getAlertMessagePopUpText(),
+				ReadPropertiesFile.getDataFromProperties("saveBrand"), "Brand Not get successfully added.");
 		System.out.println("Brand Added Successfully");
 		Thread.sleep(1000);
 		mngr_brandMaster.searchAddedBrandInTable("BrandName 100");
-		//mngr_brandMaster.searchAddedBrandInTable("BrandName 121a1");
+		// mngr_brandMaster.searchAddedBrandInTable("BrandName 121a1");
 	}
 }

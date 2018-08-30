@@ -10,7 +10,7 @@ import thingblu.utility.ReadPropertiesFile;
 
 public class Mngr_AssignSiftingTask extends Config {
 
-	@Test(dataProvider="SiftingTaskData" , dataProviderClass=DataProviders.class)
+	@Test(dataProvider="SiftingTaskData" , dataProviderClass=DataProviders.class , groups = { "Sifting" })
 	public void verifyAssignGrindingTask(String taskName,String strain,String lotNo, String Emp, String assignWt, String stDate, String priority, String comment, String notiCheckManager,String notiCheckEmp ) throws Exception {
 		logInToApplicationAs("Manager");
 		navigation.clickOnTaskMenuItem();

@@ -76,7 +76,16 @@ public class Mngr_LotEntry extends BasePage{
 
 	@FindBy(id = "totalthc")
 	WebElement totalTHC;
+	
+	@FindBy(css="p-confirmdialog>div>div:nth-child(3)>button[ng-reflect-label='Yes']")
+	WebElement confirmYes;
+	
+	
 
+	public void confirmSave(){
+		click(confirmYes);
+		
+	}
 	public void selectGrower(String growerName) {
 		selectItemFromDrpDwn(growserDrpDwn, growerList, growerName);
 	}
@@ -104,24 +113,24 @@ public class Mngr_LotEntry extends BasePage{
 		}
 		
 	}
-	public void enterTHCValue(double THCValue) {
-		enterDoubleData(THC, THCValue);
+	public void enterTHCValue(String THCValue) {
+		enterData(THC, THCValue);
 	}
 
-	public void enterTHCAValue(double THCAValue) {
-		enterDoubleData(THCA, THCAValue);
+	public void enterTHCAValue(String THCAValue) {
+		enterData(THCA, THCAValue);
 	}
 
-	public void enterCBDvalue(double CBDvalue) {
-		enterDoubleData(CBD, CBDvalue);
+	public void enterCBDvalue(String CBDvalue) {
+		enterData(CBD, CBDvalue);
 	}
 
-	public void enterCBDAvalue(double CBDAvalue) {
-		enterDoubleData(CBDA, CBDAvalue);
+	public void enterCBDAvalue(String CBDAvalue) {
+		enterData(CBDA, CBDAvalue);
 	}
 
-	public void entertotalTHCVlaue(double totalTHCVlaue) {
-		enterDoubleData(totalTHC, totalTHCVlaue);
+	public void entertotalTHCVlaue(String totalTHCVlaue) {
+		enterData(totalTHC, totalTHCVlaue);
 	}
 
 	public void enterLotnumber(String lotNumber) {

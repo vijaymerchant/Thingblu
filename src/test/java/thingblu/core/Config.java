@@ -2,7 +2,11 @@ package thingblu.core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 
 import thingblu.pages.Common_MenuNavigation;
 import thingblu.pages.Common_SignInPage;
@@ -24,7 +28,8 @@ import thingblu.pages.Mngr_TrimmingTaskReview;
 
 public class Config {
 	protected WebDriver driver;
-
+	protected ExtentReports report;
+	protected ExtentTest etlogger;
 
 	protected Common_SignInPage signIn;
 	protected Common_MenuNavigation navigation;
@@ -48,7 +53,11 @@ public class Config {
 	@BeforeClass
 	public void initBrowser() throws Exception {
 		driver = WebDriverManager.getInstance("chrome");
-
+		
+		// Reports
+		report = new ExtentReports(Constants.extentFilePath);
+		
+		// Page initialization
 		signIn = PageFactory.initElements(driver, Common_SignInPage.class);
 		navigation = PageFactory.initElements(driver, Common_MenuNavigation.class);
 		orderEntryPage = PageFactory.initElements(driver, Mngr_OrderEntryForm.class);
@@ -66,6 +75,8 @@ public class Config {
 		mngr_productTypeMaster = PageFactory.initElements(driver, Mngr_AddNewProductType.class);
 		mngr_strainTypeMaster = PageFactory.initElements(driver, Mngr_AddNewStrainType.class);
 		mngr_strainMaster = PageFactory.initElements(driver, Mngr_AddNewStrain.class);		
+		
+		// Start page link
 		driver.get(Constants.testLink);
 	}
 
@@ -74,12 +85,14 @@ public class Config {
 	 * if (ITestResult.FAILURE == result.getStatus()) { FailedCasesScreenshot fs
 	 * = new FailedCasesScreenshot(); fs.takeScreenShot(driver,
 	 * result.getName()); etlogger.log(LogStatus.FAIL, result.getName()); } }
-	 * 
-	 * @AfterTest public void closeReports() { report.endTest(etlogger);
-	 * report.flush(); driver.get(
-	 * "D:/somanath/gitRepositoryData/math2shine/reports/math2shine.html"); }
 	 */
-
+	
+	@AfterClass
+	public void closeReports() {
+		report.endTest(etlogger);
+		report.flush();
+		driver.get(Constants.extentFilePath);
+	}
 	public void logIntoSystemAsManager(String username, String password) {
 		signIn.setUsername(username);
 		signIn.setPassword(password);

@@ -9,7 +9,7 @@ import thingblu.utility.ReadPropertiesFile;
 
 public class Mngr_ReviewTrimmingTask extends Config{
 	
-	@Test(dataProvider="TrimmingTaskReview",  dataProviderClass = DataProviders.class)
+	@Test(dataProvider="TrimmingTaskReview",  dataProviderClass = DataProviders.class, groups = { "Sifting","Trimming" })
 	public void verifyReviewtrimmingTask( String empName, String task, String strain, String lot, String action,String budW, String oilW, String wasteW, String hrs, String Mins, String comment, String processedW ){
 		logInToApplicationAs("Manager");
 		mngr_dashboardCommon.mngrSelectTask(empName, task, strain, lot);

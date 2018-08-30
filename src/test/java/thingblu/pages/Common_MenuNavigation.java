@@ -88,7 +88,7 @@ public class Common_MenuNavigation extends BasePage {
 	}
 
 	public void clickOnAddNewBarndMenuItem() {
-		//clickOnMastersMenuItem();
+		clickOnMastersMenuItem();
 		click(addNewBrandPageLink);
 	}
 

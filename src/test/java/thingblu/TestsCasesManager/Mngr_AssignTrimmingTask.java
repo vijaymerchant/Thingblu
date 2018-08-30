@@ -9,7 +9,7 @@ import thingblu.utility.ReadPropertiesFile;
 
 public class Mngr_AssignTrimmingTask extends Config {
 
-	@Test(dataProvider="TrimmingTaskData" , dataProviderClass=DataProviders.class)
+	@Test(dataProvider="TrimmingTaskData" , dataProviderClass=DataProviders.class, groups = { "Sifting","Trimming" })
 	public void verifyAssignTrimmingTask(String taskName,String strainName,String lotNo, String Emp, String stDate, String priority, String comment, String notiCheckManager,String notiCheckEmp ) throws Exception {
 		logInToApplicationAs("Manager");
 		navigation.clickOnTaskMenuItem();

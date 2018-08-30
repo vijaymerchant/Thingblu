@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Sample Suite]">
+  <listeners>
+    <listener class-name="thingblu.utility.listners.TestListener"/>
+  </listeners>
+  <test thread-count="5" name="testing(failed)">
     <classes>
-      <class name="thingblu.TestsCasesManager.Mngr_VerifyAddNewProductType">
+      <class name="thingblu.TestsCasesManager.Mngr_AddNewLotEntry">
         <methods>
-          <include name="addNewSubBrandAndValidateStatus" invocation-numbers="0"/>
+          <include name="closeReports"/>
+          <include name="verifyLotEntry" invocation-numbers="0"/>
           <include name="initBrowser"/>
         </methods>
-      </class> <!-- thingblu.TestsCasesManager.Mngr_VerifyAddNewProductType -->
+      </class> <!-- thingblu.TestsCasesManager.Mngr_AddNewLotEntry -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- testing(failed) -->
+</suite> <!-- Failed suite [Sample Suite] -->

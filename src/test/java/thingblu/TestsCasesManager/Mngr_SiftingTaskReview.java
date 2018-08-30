@@ -6,7 +6,7 @@ import thingblu.core.Config;
 
 public class Mngr_SiftingTaskReview extends Config{
 
-	@Test
+	@Test(groups = { "Sifting"})
 	public void VerifySiftingTaskreview() throws Exception{
 		logInToApplicationAs("Manager");
 		mngr_dashboardCommon.mngrSelectTask("David Miller", "Sifting", "9LB Hammer", "1");

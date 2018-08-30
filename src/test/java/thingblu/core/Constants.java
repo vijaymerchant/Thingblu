@@ -35,4 +35,9 @@ public class Constants {
 	public static final String HUB_URL="";
 	public static final String NODE1_URL="http://192.168.0.5:5555/wd/hub";
 	public static final String NODE2_URL="http://192.168.0.9:5555/wd/hub";
+	
+	//Report files
+	public static final String extentFilePath="D:\\somanath\\automation_work\\ThingBluTest\\Reports\\ThingBluTestReport.html";
+	
+	
 }

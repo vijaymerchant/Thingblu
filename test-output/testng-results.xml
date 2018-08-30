@@ -1,103 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="41719" started-at="2018-08-23T17:32:34Z" finished-at="2018-08-23T17:33:15Z">
+  <suite name="Sample Suite" duration-ms="25257" started-at="2018-08-30T05:08:50Z" finished-at="2018-08-30T05:09:15Z">
     <groups>
+      <group name="Sifting">
+        <method signature="Mngr_AddNewLotEntry.verifyLotEntry(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:thingblu.TestsCasesManager.Mngr_AddNewLotEntry@5622fdf]" name="verifyLotEntry" class="thingblu.TestsCasesManager.Mngr_AddNewLotEntry"/>
+      </group> <!-- Sifting -->
+      <group name="Trimming">
+        <method signature="Mngr_AddNewLotEntry.verifyLotEntry(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:thingblu.TestsCasesManager.Mngr_AddNewLotEntry@5622fdf]" name="verifyLotEntry" class="thingblu.TestsCasesManager.Mngr_AddNewLotEntry"/>
+      </group> <!-- Trimming -->
     </groups>
-    <test name="Default test" duration-ms="41719" started-at="2018-08-23T17:32:34Z" finished-at="2018-08-23T17:33:15Z">
-      <class name="thingblu.TestsCasesManager.Mngr_VerifyAddNewProductType">
-        <test-method status="PASS" signature="initBrowser()[pri:0, instance:thingblu.TestsCasesManager.Mngr_VerifyAddNewProductType@6d4b1c02]" name="initBrowser" is-config="true" duration-ms="5928" started-at="2018-08-23T17:32:34Z" finished-at="2018-08-23T17:32:40Z">
+    <test name="testing" duration-ms="25257" started-at="2018-08-30T05:08:50Z" finished-at="2018-08-30T05:09:15Z">
+      <class name="thingblu.TestsCasesManager.Mngr_AddNewLotEntry">
+        <test-method status="PASS" signature="initBrowser()[pri:0, instance:thingblu.TestsCasesManager.Mngr_AddNewLotEntry@5622fdf]" name="initBrowser" is-config="true" duration-ms="6777" started-at="2018-08-30T05:08:50Z" finished-at="2018-08-30T05:08:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initBrowser -->
-        <test-method status="FAIL" signature="addNewSubBrandAndValidateStatus(java.util.HashMap)[pri:0, instance:thingblu.TestsCasesManager.Mngr_VerifyAddNewProductType@6d4b1c02]" name="addNewSubBrandAndValidateStatus" duration-ms="35757" started-at="2018-08-23T17:32:40Z" data-provider="ProductTypeData" finished-at="2018-08-23T17:33:15Z">
+        <test-method status="PASS" signature="verifyLotEntry(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:thingblu.TestsCasesManager.Mngr_AddNewLotEntry@5622fdf]" name="verifyLotEntry" duration-ms="14527" started-at="2018-08-30T05:08:57Z" data-provider="LotEntryData" finished-at="2018-08-30T05:09:12Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{Brand=BrandName 100, Desc=5665, subBrand=auto Sub245}]]>
+                <![CDATA[Treedom]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[4]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[45]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[45]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[5]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[54]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[LO45T5-45454]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[Bud Material]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[500]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[500]]>
+              </value>
+            </param>
+            <param index="11">
+              <value>
+                <![CDATA[300]]>
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"div[class='ui-growl-message']>p"}
-  (Session info: chrome=68.0.3440.106)
-  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.8.0', revision: '924c4067df', time: '2017-11-30T11:20:39.408Z'
-System info: host: 'DOTNET07-PC', ip: '192.168.5.165', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_161'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.40.565498 (ea082db3280dd6..., userDataDir: C:\Users\BHARAT~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 68.0.3440.106, webStorageEnabled: true}
-Session ID: 431719405acd06e0651a88852ea9f6e6
-*** Element info: {Using=css selector, value=div[class='ui-growl-message']>p}]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"div[class='ui-growl-message']>p"}
-  (Session info: chrome=68.0.3440.106)
-  (Driver info: chromedriver=2.40.565498 (ea082db3280dd6843ebfb08a625e3eb905c4f5ab),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.8.0', revision: '924c4067df', time: '2017-11-30T11:20:39.408Z'
-System info: host: 'DOTNET07-PC', ip: '192.168.5.165', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_161'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.40.565498 (ea082db3280dd6..., userDataDir: C:\Users\BHARAT~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 68.0.3440.106, webStorageEnabled: true}
-Session ID: 431719405acd06e0651a88852ea9f6e6
-*** Element info: {Using=css selector, value=div[class='ui-growl-message']>p}
-at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
-at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
-at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
-at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
-at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
-at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
-at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:371)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:465)
-at org.openqa.selenium.By$ByCssSelector.findElement(By.java:430)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:363)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy8.getText(Unknown Source)
-at thingblu.pages.Mngr_AddNewSubBrand.getAlertMessagePopUpText(Mngr_AddNewSubBrand.java:89)
-at thingblu.TestsCasesManager.Mngr_VerifyAddNewProductType.addNewSubBrandAndValidateStatus(Mngr_VerifyAddNewProductType.java:24)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addNewSubBrandAndValidateStatus -->
-      </class> <!-- thingblu.TestsCasesManager.Mngr_VerifyAddNewProductType -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- verifyLotEntry -->
+        <test-method status="PASS" signature="closeReports()[pri:0, instance:thingblu.TestsCasesManager.Mngr_AddNewLotEntry@5622fdf]" name="closeReports" is-config="true" duration-ms="3731" started-at="2018-08-30T05:09:12Z" finished-at="2018-08-30T05:09:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeReports -->
+      </class> <!-- thingblu.TestsCasesManager.Mngr_AddNewLotEntry -->
+    </test> <!-- testing -->
+  </suite> <!-- Sample Suite -->
 </testng-results>

@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Sample Suite]">
-  <test name="testing(failed)">
+  <listeners>
+    <listener class-name="thingblu.utility.listners.TestListener"/>
+  </listeners>
+  <test thread-count="5" name="testing(failed)">
     <classes>
-      <class name="thingblu.TestsCasesManager.assignTrimmingTask">
+      <class name="thingblu.TestsCasesManager.Mngr_AddNewLotEntry">
         <methods>
+          <include name="closeReports"/>
+          <include name="verifyLotEntry" invocation-numbers="0"/>
           <include name="initBrowser"/>
-          <include name="verifyAssignTrimmingTask" invocation-numbers="0"/>
         </methods>
-      </class> <!-- thingblu.TestsCasesManager.assignTrimmingTask -->
+      </class> <!-- thingblu.TestsCasesManager.Mngr_AddNewLotEntry -->
     </classes>
   </test> <!-- testing(failed) -->
 </suite> <!-- Failed suite [Sample Suite] -->

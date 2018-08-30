@@ -7,7 +7,7 @@ import thingblu.core.DataProviders;
 
 public class Emp_CompleteTrimmingTask extends Config {
 
-	@Test(dataProvider="TrimmingTaskComplete",  dataProviderClass = DataProviders.class)
+	@Test(dataProvider="TrimmingTaskComplete",  dataProviderClass = DataProviders.class,groups = { "Sifting","Trimming" })
 	public void verifyCompleteTrimmingTask(String taskstartDate, String taskName, String growerName, String lotNo, String statusName, String actionName, String isCompleted, String budWeight, String taskComment){
 		logInToApplicationAs("Employee");
 		emp_dashboardCommon.selectStatusTab(taskstartDate);

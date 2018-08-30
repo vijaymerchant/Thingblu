@@ -7,7 +7,7 @@ import thingblu.core.DataProviders;
 
 public class Emp_CompleteSiftingTask extends Config {
 
-	@Test(dataProvider="SiftingTaskComplete",  dataProviderClass = DataProviders.class)
+	@Test(dataProvider="SiftingTaskComplete",  dataProviderClass = DataProviders.class,groups = { "Sifting"})
 	public void verifyCompleteSiftingTask(String taskstartDate, String taskName, String growerName, String lotNo, String statusName, String actionName,  String budWeight,String jointsWeight, String oilWeight, String taskComment){
 		logInToApplicationAs("Employee");
 		emp_dashboardCommon.selectStatusTab(taskstartDate);
